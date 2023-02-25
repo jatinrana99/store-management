@@ -3,12 +3,12 @@ package com.jsk.storemanagement.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.jsk.storemanagement.repository.StoreRepository;
+import com.jsk.storemanagement.repository.ProductRepository;
 
 @Repository
-public class StoreDao {
+public class ProductDao {
 
     @Autowired
-    StoreRepository storeRepository;
+    ProductRepository productRepository;
     
 }
