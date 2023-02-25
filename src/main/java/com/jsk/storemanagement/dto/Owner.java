@@ -1,5 +1,43 @@
 package com.jsk.storemanagement.dto;
 
-public class Owner {
+import jakarta.persistence.OneToMany;
 
+public class Owner {
+private int ownerId;
+private String ownerName;
+private String ownerEmail;
+@OneToMany
+private Store store;
+@OneToMany
+private Manager manager;
+public int getOwnerId() {
+    return ownerId;
+}
+public void setOwnerId(int ownerId) {
+    this.ownerId = ownerId;
+}
+public String getOwnerName() {
+    return ownerName;
+}
+public void setOwnerName(String ownerName) {
+    this.ownerName = ownerName;
+}
+public String getOwnerEmail() {
+    return ownerEmail;
+}
+public void setOwnerEmail(String ownerEmail) {
+    this.ownerEmail = ownerEmail;
+}
+public Store getStore() {
+    return store;
+}
+public void setStore(Store store) {
+    this.store = store;
+}
+public Manager getManager() {
+    return manager;
+}
+public void setManager(Manager manager) {
+    this.manager = manager;
+}
 }
