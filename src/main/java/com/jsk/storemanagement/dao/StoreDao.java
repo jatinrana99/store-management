@@ -42,8 +42,8 @@ public class StoreDao {
         storeRepository.save(dbStore);
     }
     // delete store
-    public void deleteStore(Store passStore){
-        storeRepository.delete(passStore);
+    public void deleteStore(int storeId){
+        storeRepository.deleteById(storeId);
     }
     // display store
     public List<Store> displayStore(){
