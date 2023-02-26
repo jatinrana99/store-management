@@ -6,4 +6,6 @@ import com.jsk.storemanagement.dto.Owner;
 
 public interface OwnerRepository extends JpaRepository<Owner, Integer> {
 
+  
+
 }
