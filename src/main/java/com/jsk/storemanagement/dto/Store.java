@@ -11,10 +11,18 @@ public class Store {
     private int storeId;
     private String storeName;
     private String storeSize;
+    private String storeLocation;
     @ManyToOne
     private Owner owner;
     @OneToMany
     private Product product;
+    
+    public String getStoreLocation() {
+        return storeLocation;
+    }
+    public void setStoreLocation(String storeLocation) {
+        this.storeLocation = storeLocation;
+    }
     public int getStoreId() {
         return storeId;
     }
