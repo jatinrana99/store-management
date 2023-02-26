@@ -45,11 +45,11 @@ public class OwnerDao {
             if (passOwner.getManager() != null) {
                 Manager dbManager = dbOwner.getManager();
                 Manager passManager = passOwner.getManager();
-                if ( != null) {
+                // if ( != null) {
                     
-                }
+                // }
             }
-            ownerRepository.save(dbOwner);
+            // ownerRepository.save(dbOwner);
         }
     }
      
