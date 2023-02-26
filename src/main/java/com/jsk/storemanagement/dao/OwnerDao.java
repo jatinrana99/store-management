@@ -47,8 +47,9 @@ public class OwnerDao {
     }
 
     // delete method for owner
-    public void deleteOnwer(Owner passOwner) {
-        ownerRepository.delete(passOwner);
+    public void deleteProduct(int ownerId) {
+        ownerRepository.deleteById(ownerId);
+
     }
 
     // display method for owner
