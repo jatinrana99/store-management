@@ -1,6 +1,5 @@
 package com.jsk.storemanagement.dto;
 
-import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

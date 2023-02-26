@@ -4,7 +4,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 
 @Entity
 public class Store {
@@ -12,8 +11,6 @@ public class Store {
     private int storeId;
     private String storeName;
     private String storeSize;
-    @OneToOne
-    private Manager manager;
     @ManyToOne
     private Owner owner;
     @OneToMany
@@ -36,12 +33,7 @@ public class Store {
     public void setStoreSize(String storeSize) {
         this.storeSize = storeSize;
     }
-    public Manager getManager() {
-        return manager;
-    }
-    public void setManager(Manager manager) {
-        this.manager = manager;
-    }
+
     public Owner getOwner() {
         return owner;
     }

@@ -8,8 +8,6 @@ private String ownerName;
 private String ownerEmail;
 @OneToMany
 private Store store;
-@OneToMany
-private Manager manager;
 public int getOwnerId() {
     return ownerId;
 }
@@ -34,10 +32,5 @@ public Store getStore() {
 public void setStore(Store store) {
     this.store = store;
 }
-public Manager getManager() {
-    return manager;
-}
-public void setManager(Manager manager) {
-    this.manager = manager;
-}
+
 }
