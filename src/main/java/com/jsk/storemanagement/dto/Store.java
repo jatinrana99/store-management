@@ -14,7 +14,7 @@ public class Store {
     private int storeId;
     private String storeName;
     private String storeSize;
-    @ManyToOne
+    @ManyToOne()
     private Manager manager;
     @OneToMany
     private List<Category> category;

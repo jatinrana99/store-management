@@ -3,12 +3,10 @@ package com.jsk.storemanagement.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jsk.storemanagement.dao.ManagerDao;
+import com.jsk.storemanagement.dao.CategoryDao;
 
 @Service
-public class OwnerService {
-
+public class LocationService {
     @Autowired
-    ManagerDao ownerDao;
-    
+    LocationDao locationDao;
 }
