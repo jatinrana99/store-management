@@ -13,7 +13,7 @@ public class Store {
     private String storeSize;
     private String storeLocation;
     @ManyToOne
-    private Owner owner;
+    private Manager owner;
     @OneToMany
     private Product product;
     
@@ -42,10 +42,10 @@ public class Store {
         this.storeSize = storeSize;
     }
 
-    public Owner getOwner() {
+    public Manager getOwner() {
         return owner;
     }
-    public void setOwner(Owner owner) {
+    public void setOwner(Manager owner) {
         this.owner = owner;
     }
     public Product getProduct() {
