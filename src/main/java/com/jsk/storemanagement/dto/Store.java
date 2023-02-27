@@ -17,7 +17,7 @@ public class Store {
     @ManyToOne
     private Manager manager;
     @OneToMany
-    private List<Product> products;
+    private List<Category> category;
     @OneToOne
     private Location location;
     
@@ -46,11 +46,11 @@ public class Store {
     public void setManager(Manager manager) {
         this.manager = manager;
     }
-    public List<Product> getProduct() {
-        return products;
+    public List<Category> getProduct() {
+        return category;
     }
-    public void setProduct(List<Product> products) {
-        this.products = products;
+    public void setProduct(List<Category> category) {
+        this.category = category;
     }
     public String getLocation() {
         return location;

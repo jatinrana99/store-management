@@ -36,9 +36,6 @@ public class StoreDao {
         if(passStore.getStoreSize() != null){
             dbStore.setStoreSize(passStore.getStoreSize());
         }
-        if(passStore.getStoreLocation() != null){
-            dbStore.setStoreLocation(passStore.getStoreLocation());
-        }
         storeRepository.save(dbStore);
     }
     // delete store
