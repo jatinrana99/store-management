@@ -2,6 +2,7 @@ package com.jsk.storemanagement.dto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import java.util.List;
 import jakarta.persistence.OneToMany;
 
 @Entity
@@ -13,7 +14,7 @@ public class Manager {
     private String managerEmail;
 
     @OneToMany
-    private Store store;
+    List<Store> store;
 
     public int getManagerId() {
         return managerId;
