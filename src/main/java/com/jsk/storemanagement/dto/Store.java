@@ -1,9 +1,12 @@
 package com.jsk.storemanagement.dto;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class Store {
@@ -11,18 +14,13 @@ public class Store {
     private int storeId;
     private String storeName;
     private String storeSize;
-    private String storeLocation;
     @ManyToOne
-    private Manager owner;
+    private Manager manager;
     @OneToMany
-    private Product product;
+    private List<Product> products;
+    @OneToOne
+    private Location location;
     
-    public String getStoreLocation() {
-        return storeLocation;
-    }
-    public void setStoreLocation(String storeLocation) {
-        this.storeLocation = storeLocation;
-    }
     public int getStoreId() {
         return storeId;
     }
@@ -42,17 +40,23 @@ public class Store {
         this.storeSize = storeSize;
     }
 
-    public Manager getOwner() {
-        return owner;
+    public Manager getManager() {
+        return manager;
     }
-    public void setOwner(Manager owner) {
-        this.owner = owner;
+    public void setManager(Manager manager) {
+        this.manager = manager;
     }
-    public Product getProduct() {
-        return product;
+    public List<Product> getProduct() {
+        return products;
     }
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProduct(List<Product> products) {
+        this.products = products;
+    }
+    public String getLocation() {
+        return location;
+    }
+    public void setLocation(Location location) {
+        this.location = location;
     }
     
     
