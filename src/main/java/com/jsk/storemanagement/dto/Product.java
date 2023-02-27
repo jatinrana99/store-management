@@ -44,9 +44,21 @@ public void setProductAvailability(boolean productAvailability) {
     this.productAvailability = productAvailability;
 }
 public Category getCategory() {
-    return Category;
+    return category;
 }
-public void setCategory(Category Category) {
-    this.Category = Category;
+public void setCategory(Category category) {
+    this.category = category;
+}
+public String getProductQuantity() {
+    return productQuantity;
+}
+public void setProductQuantity(String productQuantity) {
+    this.productQuantity = productQuantity;
+}
+public LocalDateTime getProductAddedTime() {
+    return productAddedTime;
+}
+public void setProductAddedTime(LocalDateTime productAddedTime) {
+    this.productAddedTime = productAddedTime;
 }
 }
