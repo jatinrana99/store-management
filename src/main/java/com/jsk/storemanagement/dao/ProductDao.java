@@ -39,9 +39,14 @@ public class ProductDao {
     if(dbProduct.getProductName()!=null){
         dbProduct.setProductName(passProduct.getProductName());
     }   
+    
     if(dbProduct.getProductAvailability()!=false){
         dbProduct.setProductAvailability(passProduct.getProductAvailability());
     }
+    if (dbProduct.getProductQuantity()!=null){
+        dbProduct.setProductQuantity(passProduct.getProductQuantity());
+    }
+    
     productRepository.save(dbProduct);
 
     }

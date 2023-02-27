@@ -35,7 +35,7 @@ public class CategoryDao {
         if (passCategory.getCategoryName() != null) {
             dbCategory.setCategoryName(passCategory.getCategoryName());
         }
-        if (passCategory.getCategoryName() != null) {
+        if (passCategory.getCategoryType() != null) {
             dbCategory.setCategoryType(passCategory.getCategoryType());
         }
         categoryRepository.save(dbCategory);
