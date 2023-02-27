@@ -13,7 +13,7 @@ public class Manager {
     private String managerName;
     private String managerEmail;
 
-    @OneToMany
+    @OneToMany(mappedBy = "manager")
     List<Store> store;
 
     public int getManagerId() {

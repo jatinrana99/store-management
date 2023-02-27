@@ -4,6 +4,7 @@ import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
@@ -14,11 +15,11 @@ public class Store {
     private int storeId;
     private String storeName;
     private String storeSize;
-    @ManyToOne()
+    @ManyToOne(cascade = CascadeType.ALL)
     private Manager manager;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Category> category;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Location location;
     
     public int getStoreId() {
