@@ -1,6 +1,8 @@
 package com.jsk.storemanagement.dto;
 
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
@@ -9,12 +11,14 @@ import jakarta.persistence.ManyToOne;
 public class Product {
 
     @Id
-   private int productId;
-   private String productName;
-   private double productPrice;
-   private boolean productAvailability;
-   @ManyToOne
-   private Store store;
+    private int productId;
+    private String productName;
+    private double productPrice;
+    private boolean productAvailability;
+    private String productQuantity;
+    private LocalDateTime productAddedTime;
+    @ManyToOne
+    private Category category;
 public int getProductId() {
     return productId;
 }
@@ -39,10 +43,10 @@ public boolean getProductAvailability() {
 public void setProductAvailability(boolean productAvailability) {
     this.productAvailability = productAvailability;
 }
-public Store getStore() {
-    return store;
+public Category getCategory() {
+    return Category;
 }
-public void setStore(Store store) {
-    this.store = store;
+public void setCategory(Category Category) {
+    this.Category = Category;
 }
 }
