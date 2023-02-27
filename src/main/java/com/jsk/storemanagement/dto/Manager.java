@@ -40,11 +40,11 @@ public class Manager {
         this.managerEmail = managerEmail;
     }
 
-    public Store getStore() {
+    public List<Store> getStore() {
         return store;
     }
 
-    public void setStore(Store store) {
+    public void setStore(List<Store> store) {
         this.store = store;
     }
 
