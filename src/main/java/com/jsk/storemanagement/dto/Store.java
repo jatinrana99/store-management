@@ -52,7 +52,7 @@ public class Store {
     public void setProduct(List<Category> category) {
         this.category = category;
     }
-    public String getLocation() {
+    public Location getLocation() {
         return location;
     }
     public void setLocation(Location location) {
