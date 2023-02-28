@@ -9,8 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import com.jsk.storemanagement.dto.Store;
 import com.jsk.storemanagement.dto.Category;
-import com.jsk.storemanagement.repository.CategoryRepository;
-import com.jsk.storemanagement.repository.ManagerRepository;
 import com.jsk.storemanagement.repository.StoreRepository;
 
 @Repository
