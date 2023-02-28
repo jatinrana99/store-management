@@ -1,5 +1,6 @@
 package com.jsk.storemanagement.dao;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.jsk.storemanagement.dto.Manager;
+import com.jsk.storemanagement.dto.Store;
 import com.jsk.storemanagement.repository.ManagerRepository;
 
 @Repository
@@ -14,6 +16,8 @@ public class ManagerDao {
 
     @Autowired
     ManagerRepository managerRepository;
+    @Autowired
+    StoreDao storeDao;
 
     // find by id manager
     public Manager findById(int managerId) {
@@ -42,7 +46,17 @@ public class ManagerDao {
         if (passManager.getManagerEmail() != null) {
             dbManager.setManagerEmail(passManager.getManagerEmail());
         }
-        // 1 if
+        // this method is updated
+        if (passManager.getStore() != null) {
+            List<Store> passStores = passManager.getStore();
+            List<Store> updatedStores = new LinkedList<Store>() ;
+            for (Store store : passStores) {
+                storeDao.updateStore(store, store.getStoreId());
+                updatedStores.add(storeDao.findById(store.getStoreId()));
+            }
+            dbManager.setStore(updatedStores);
+        }
+
         managerRepository.save(dbManager);
     }
 

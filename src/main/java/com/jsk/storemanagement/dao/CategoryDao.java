@@ -1,5 +1,6 @@
 package com.jsk.storemanagement.dao;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,7 +48,8 @@ public class CategoryDao {
         if(passCategory.getProduct() != null){
 
             List<Product> passProducts = passCategory.getProduct();
-            List<Product> updatedProducts = null;
+            
+            List<Product> updatedProducts= new LinkedList<Product>() ;
             for(Product passProduct : passProducts){
                 productDao.updateProduct(passProduct,passProduct.getProductId());
                 updatedProducts.add(productDao.findById(passProduct.getProductId()));

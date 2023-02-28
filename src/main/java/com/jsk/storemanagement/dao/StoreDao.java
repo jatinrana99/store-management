@@ -1,6 +1,7 @@
 package com.jsk.storemanagement.dao;
 
 import java.util.Optional;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +58,7 @@ public class StoreDao {
         if(passStore.getCategory() != null){
 
             List<Category> passCategories = passStore.getCategory();
-            List<Category> updatedCategories = null;
+            List<Category> updatedCategories = new LinkedList<Category>() ;
             for(Category category : passCategories){
                 categoryDao.updateCategory(category, category.getCategoryId());
                 updatedCategories.add(categoryDao.findById(category.getCategoryId()));
