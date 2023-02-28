@@ -15,6 +15,9 @@ public class ProductDao {
     @Autowired
     ProductRepository productRepository;
 
+    @Autowired
+    CategoryDao categoryDao;
+
     // find by id of product
     public Product findById(int productId) {
         Optional<Product> optional = productRepository.findById(productId);
@@ -24,39 +27,45 @@ public class ProductDao {
         return null;
     }
 
-    //insert product
+    // insert product
     public void insert(Product passProduct) {
         productRepository.save(passProduct);
     }
 
-    //update product
-    public void update(Product passProduct ,int productId) {
-    Product dbProduct=productRepository.findById(productId).get();
-    if(passProduct.getProductPrice()!=0.0){
-        dbProduct.setProductPrice(passProduct.getProductPrice());
-    }
-    if(dbProduct.getProductName()!=null){
-        dbProduct.setProductName(passProduct.getProductName());
-    }   
-    
-    if(dbProduct.getProductAvailability()!=false){
-        dbProduct.setProductAvailability(passProduct.getProductAvailability());
-    }
-    if (dbProduct.getProductQuantity()!=null){
-        dbProduct.setProductQuantity(passProduct.getProductQuantity());
-    }
-    // 1 if
-    
-    productRepository.save(dbProduct);
+    // update product
+    public void update(Product passProduct, int productId) {
+        Product dbProduct = productRepository.findById(productId).get();
+        if (passProduct.getProductPrice() != 0.0) {
+            dbProduct.setProductPrice(passProduct.getProductPrice());
+        }
+        if (dbProduct.getProductName() != null) {
+            dbProduct.setProductName(passProduct.getProductName());
+        }
+
+        if (dbProduct.getProductAvailability() != false) {
+            dbProduct.setProductAvailability(passProduct.getProductAvailability());
+        }
+        if (dbProduct.getProductQuantity() != null) {
+            dbProduct.setProductQuantity(passProduct.getProductQuantity());
+        }
+        // this method is updated
+        if (passProduct.getCategory() != null) {
+            categoryDao.updateCategory(passProduct.getCategory(), passProduct.getCategory().getCategoryId());
+            dbProduct.setCategory(passProduct.getCategory());
+        }
+
+        productRepository.save(dbProduct);
 
     }
+
     // delete product
-    public void deleteProduct(int productId){
+    public void deleteProduct(int productId) {
         productRepository.deleteById(productId);
 
     }
-    //display product
-    public List<Product> displayProduct(){
+
+    // display product
+    public List<Product> displayProduct() {
         return productRepository.findAll();
     }
 }
