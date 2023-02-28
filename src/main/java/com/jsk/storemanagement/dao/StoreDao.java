@@ -48,19 +48,21 @@ public class StoreDao {
         }
         if(passStore.getManager() != null){
             managerDao.updateManager(passStore.getManager() , passStore.getManager().getManagerId());
-            dbStore.setManager(passStore.getManager());
+            dbStore.setManager(managerDao.findById(passStore.getManager().getManagerId()));
         }
         if(passStore.getLocation() != null) {
             locationDao.updateLocation(passStore.getLocation(), passStore.getLocation().getLocationId());
-            dbStore.setLocation(passStore.getLocation());
+            dbStore.setLocation(locationDao.findById(passStore.getLocation().getLocationId()));
         }
         if(passStore.getCategory() != null){
 
             List<Category> passCategories = passStore.getCategory();
+            List<Category> updatedCategories = null;
             for(Category category : passCategories){
                 categoryDao.updateCategory(category, category.getCategoryId());
+                updatedCategories.add(categoryDao.findById(category.getCategoryId()));
             }
-            passStore.setCategory(passCategories);
+            passStore.setCategory(updatedCategories);
         }
         storeRepository.save(dbStore);
     }

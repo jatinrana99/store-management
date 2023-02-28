@@ -7,12 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.jsk.storemanagement.dto.Category;
+import com.jsk.storemanagement.dto.Product;
 import com.jsk.storemanagement.repository.CategoryRepository;
 
 @Repository
 public class CategoryDao {
     @Autowired
     CategoryRepository categoryRepository;
+    @Autowired
+    ProductDao productDao;
+    @Autowired
+    StoreDao storeDao;
+
 
     // find by id(Category)
     public Category findById(int passCategoryId) {
@@ -38,7 +44,21 @@ public class CategoryDao {
         if (passCategory.getCategoryType() != null) {
             dbCategory.setCategoryType(passCategory.getCategoryType());
         }
-        // 2 if
+        if(passCategory.getProduct() != null){
+
+            List<Product> passProducts = passCategory.getProduct();
+            List<Product> updatedProducts = null;
+            for(Product passProduct : passProducts){
+                productDao.updateProduct(passProduct,passProduct.getProductId());
+                updatedProducts.add(productDao.findById(passProduct.getProductId()));
+            }
+            
+            dbCategory.setProduct(updatedProducts);
+        }
+        if(passCategory.getStore()!=null){
+            storeDao.updateStore(passCategory.getStore(), passCategory.getStore().getStoreId());
+            dbCategory.setStore(storeDao.findById(passCategory.getStore().getStoreId()));
+        }
         categoryRepository.save(dbCategory);
     }
 

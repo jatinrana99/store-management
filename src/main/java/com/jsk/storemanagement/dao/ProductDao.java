@@ -14,6 +14,7 @@ public class ProductDao {
 
     @Autowired
     ProductRepository productRepository;
+    
 
     // find by id of product
     public Product findById(int productId) {
@@ -25,12 +26,12 @@ public class ProductDao {
     }
 
     //insert product
-    public void insert(Product passProduct) {
+    public void insertProduct(Product passProduct) {
         productRepository.save(passProduct);
     }
 
     //update product
-    public void update(Product passProduct ,int productId) {
+    public void updateProduct(Product passProduct ,int productId) {
     Product dbProduct=productRepository.findById(productId).get();
     if(passProduct.getProductPrice()!=0.0){
         dbProduct.setProductPrice(passProduct.getProductPrice());

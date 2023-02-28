@@ -12,6 +12,8 @@ public class LocationDao {
 
     @Autowired
     LocationRepository locationRepository;
+    @Autowired
+    StoreDao storeDao;
 
     // find by id method of location
     public Location findById(int locationId) {
@@ -43,7 +45,11 @@ public class LocationDao {
         if (passLocation.getLocationState() != null) {
             dbLocation.setLocationState(passLocation.getLocationState());
         }
-        // 1 if
+        if(passLocation.getStore()!=null){
+            storeDao.updateStore(passLocation.getStore(),passLocation.getStore().getStoreId() );
+            dbLocation.setStore(storeDao.findById(passLocation.getStore().getStoreId()));
+
+        }
         locationRepository.save(dbLocation);
 
     }
