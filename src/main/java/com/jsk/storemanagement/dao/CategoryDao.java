@@ -38,6 +38,7 @@ public class CategoryDao {
         if (passCategory.getCategoryType() != null) {
             dbCategory.setCategoryType(passCategory.getCategoryType());
         }
+        // 2 if
         categoryRepository.save(dbCategory);
     }
 

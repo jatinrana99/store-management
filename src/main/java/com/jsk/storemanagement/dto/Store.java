@@ -47,10 +47,10 @@ public class Store {
     public void setManager(Manager manager) {
         this.manager = manager;
     }
-    public List<Category> getProduct() {
+    public List<Category> getCategory() {
         return category;
     }
-    public void setProduct(List<Category> category) {
+    public void setCategory(List<Category> category) {
         this.category = category;
     }
     public Location getLocation() {

@@ -13,7 +13,10 @@ public class Category {
     private int categoryId;
     private String categoryName;
     private String categoryType;
-
+    @OneToMany
+    private List<Product> product;
+    @ManyToOne
+    private Store store;
     public int getCategoryId() {
         return categoryId;
     }
@@ -54,8 +57,5 @@ public class Category {
         this.store = store;
     }
 
-    @OneToMany
-    private List<Product> product;
-    @ManyToOne
-    private Store store;
+    
 }

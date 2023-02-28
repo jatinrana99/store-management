@@ -34,7 +34,6 @@ public class ProductDao {
     Product dbProduct=productRepository.findById(productId).get();
     if(passProduct.getProductPrice()!=0.0){
         dbProduct.setProductPrice(passProduct.getProductPrice());
-
     }
     if(dbProduct.getProductName()!=null){
         dbProduct.setProductName(passProduct.getProductName());
@@ -46,6 +45,7 @@ public class ProductDao {
     if (dbProduct.getProductQuantity()!=null){
         dbProduct.setProductQuantity(passProduct.getProductQuantity());
     }
+    // 1 if
     
     productRepository.save(dbProduct);
 

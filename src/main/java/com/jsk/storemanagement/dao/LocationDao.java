@@ -43,6 +43,7 @@ public class LocationDao {
         if (passLocation.getLocationState() != null) {
             dbLocation.setLocationState(passLocation.getLocationState());
         }
+        // 1 if
         locationRepository.save(dbLocation);
 
     }

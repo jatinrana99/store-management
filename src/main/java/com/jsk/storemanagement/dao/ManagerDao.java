@@ -15,9 +15,9 @@ public class ManagerDao {
     @Autowired
     ManagerRepository managerRepository;
 
-    // find by id owner
-    public Manager findById(int ownerId) {
-        Optional<Manager> optional = managerRepository.findById(ownerId);
+    // find by id manager
+    public Manager findById(int managerId) {
+        Optional<Manager> optional = managerRepository.findById(managerId);
 
         if (optional.isPresent()) {
             return optional.get();
@@ -26,32 +26,33 @@ public class ManagerDao {
         }
     }
 
-    // insert method for owner
-    public void insertOwner(Manager passOwner) {
-        managerRepository.save(passOwner);
+    // insert method for manager
+    public void insertManager(Manager passManager) {
+        managerRepository.save(passManager);
     }
 
-    // update method for owner
-    public void updateOwner(Manager passOwner, int ownerId) {
-        Manager dbOwner = managerRepository.findById(ownerId).get();
+    // update method for manager
+    public void updateManager(Manager passManager, int managerId) {
+        Manager dbManager = managerRepository.findById(managerId).get();
 
-        if (passOwner.getManagerName() != null) {
-            dbOwner.setManagerName(passOwner.getManagerName());
+        if (passManager.getManagerName() != null) {
+            dbManager.setManagerName(passManager.getManagerName());
         }
 
-        if (passOwner.getManagerEmail() != null) {
-            dbOwner.setManagerEmail(passOwner.getManagerEmail());
+        if (passManager.getManagerEmail() != null) {
+            dbManager.setManagerEmail(passManager.getManagerEmail());
         }
-        managerRepository.save(dbOwner);
+        // 1 if
+        managerRepository.save(dbManager);
     }
 
-    // delete method for owner
-    public void deleteProduct(int managerId) {
+    // delete method for manager
+    public void deleteManager(int managerId) {
         managerRepository.deleteById(managerId);
 
     }
 
-    // display method for owner
+    // display method for manager
     public List<Manager> displayManager() {
         return managerRepository.findAll();
     }
