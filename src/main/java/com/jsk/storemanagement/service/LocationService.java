@@ -26,15 +26,13 @@ public class LocationService {
     public void updateLocation(Location passLocation, int locationId) {
         locationDao.updateLocation(passLocation, locationId);
     }
-
     // delete Location
     public void deleteLocation(int locationId) {
         locationDao.deleteLocation(locationId);
     }
-
     // display location
     public List<Location> displayLocation() {
         return locationDao.displayLocation();
     }
-
+    
 }
